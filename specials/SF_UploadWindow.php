@@ -542,6 +542,9 @@ END;
 				$error = $details['error'];
 				$this->uploadError( wfMessage( $error )->parse() );
 				break;
+			case UploadBase::FILE_TOO_LARGE:
+				$this->showUploadForm( $this->getUploadForm( wfMessage( 'file-too-large' )->escaped() ) );
+				break;
 			default:
 				throw new MWException( __METHOD__ . ": Unknown value `{$details['status']}`" );
 		}
